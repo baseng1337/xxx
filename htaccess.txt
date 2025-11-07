@@ -1,10 +1,12 @@
-DirectoryIndex index.php
-
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
+    # Mengabaikan file dan direktori yang ada
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Mengarahkan semua permintaan lain (termasuk /slug-baru dan /sitemap) 
+    # ke index.php untuk diproses
     RewriteRule ^(.*)$ index.php [L,QSA]
 </IfModule>
